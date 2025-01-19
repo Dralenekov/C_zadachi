@@ -1,0 +1,65 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+    int i,j;
+    int N;
+    printf("Ще попълните 2 масива с числа между -100 и 100 \n");
+    printf("Author Dimitar Ralenekov\n");
+    printf("Enter dimensions (N:): ");
+    scanf("%d",&N);
+    int A[N][N],B[N][N],C[N];
+    
+    printf("For A:\n");
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            printf("num: ");
+            scanf("%d",&A[i][j]);
+        }
+    }
+    
+    printf("For B:\n");
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            printf("num: ");
+            scanf("%d",&B[i][j]);
+        }
+    }
+    
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            printf("%d ",A[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            printf("%d ",B[i][j]);
+        }
+        printf("\n");
+    }
+    printf("For C: ");
+    for(i=0;i<N;i++){
+        C[i] = A[i][i]+B[i][i];
+    }
+    printf("Array C: \n");
+    for(i=0;i<N;i++){
+        printf("%d ",C[i]);
+    }
+    for(i=0;i<N-1;i++){
+        for(j=0;j<N-i-1;j++){
+            if(C[j]>C[j+1]){
+                int temp = C[j];
+                C[j] = C[j+1];
+                C[j+1] = temp;
+            }
+        }
+    }
+    printf("\n");
+    for(i=0;i<N;i++){
+        printf("%d ",C[i]);
+    }
+    return 0;
+}
