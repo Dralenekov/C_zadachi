@@ -1,0 +1,72 @@
+/*
+Да се състави програма за обработка на двумерния масив A[N,N], където данните са цели числа в интервала [-10;10]. Програмата да извърши следните действия: 
+отпечатване на условието на задачата;
+отпечатване на имената на автора на програмата;	
+въвеждане на входните данни; 
+отпечатване на входните данни;
+а) да се образува едномерен масив C, елементите на който са елементите от масива А, чиито квадрати са по-големи от 50
+б) полученият масив да се сортира по големина;
+отпечатване на получените резултати след обработката
+*/
+
+#include <stdio.h>
+#include <math.h>
+int main() {
+    // Write C code here
+    int i,j;
+    int N;
+    printf("Ще попълните 2 масива с числа между -100 и 100 \n");
+    printf("Author Dimitar Ralenekov\n");
+    printf("Enter dimensions (N:): ");
+    scanf("%d",&N);
+    int A[N][N];
+    int Csize=0;
+    int C[Csize];
+    int squared;
+    printf("For A:\n");
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            printf("num: ");
+            scanf("%d",&A[i][j]);
+            while(A[i][j]>100||A[i][j]<-100){
+                printf("Out of range: ");
+                printf("num: ");
+                scanf("%d",&A[i][j]);
+            }
+            
+        }
+    }
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            printf("%d ",A[i][j]);
+        }
+        printf("\n");
+    }
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            squared = pow(A[i][j],2);
+            if(squared>50){
+                C[Csize++] = squared;
+            }
+        }
+    }
+    
+    printf("\n");
+    for(i=0;i<Csize;i++){
+        printf("%d ",C[i]);
+    }
+    for(i=0;i<Csize-1;i++){
+        for(j=0;j<Csize-i-1;j++){
+            if(C[j]>C[j+1]){
+                int temp = C[j];
+                C[j] = C[j+1];
+                C[j+1] = temp;
+            }
+        }
+    }
+    printf("\n");
+    for(i=0;i<Csize;i++){
+        printf("%d ",C[i]);
+    }    
+    return 0;
+}
