@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+    int n,i,j;
+    int M,N,Q;
+    int count = 0;
+    printf("2D array task!\n");
+    printf("Enter size: ");
+    scanf("%d",&n);
+    int arr[n][n],arr2[n][n];
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            printf("arr[%d][%d]: ",i,j);
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Enter M: ");
+    scanf("%d",&M);
+    printf("Enter N: ");
+    scanf("%d",&N);
+    printf("WHat namber to be swapped (Q): ");
+    scanf("%d",&Q);
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            arr2[i][j] = arr[i][j];
+            if(arr2[i][j]<0 &&arr2[i][j]<N&&arr2[i][j]>M){
+                arr2[i][j] = Q;
+                count++;
+            }
+        }
+    }
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            printf("%d ",arr2[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    printf("%d",count);
+    
+   
+    return 0;
+}
